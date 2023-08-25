@@ -1,0 +1,77 @@
+
+
+Dictionary .... right after csv to dict step ... drop "empty" ... values ... 
+URL0 => https://towardsdatascience.com/7-advanced-python-dictionary-techniques-you-should-know-416194d82d2c
++
+Code Reference:
+dict1 = {'a': 'apple', 'b': 'banana', 'c':None}
+
+dict1 = {key:value for (key, value) in dict1.items() if value is not None}
+print(dict1)
+
+# Returns: {'a': 'apple', 'b': 'banana'}
++
++
+ALSO Code Reference to Filter:
+heights = {'John': 175, 'Jane': 150, 'Jim': 155, 'Matt': 170}
+
+tall = {key:value for (key, value) in heights.items() if value >= 170}
+
+print(tall)
+# Returns: {'John': 175, 'Matt': 170}
++
++
+URL1 => https://towardsdatascience.com/six-tricks-you-should-know-about-python-dictionary-41c86570d282
++
+Code Reference:
++
+#SIMPLIFIED => sorted(students, key=lambda item: item['age'], reverse=True)
++
+#LOGICAL => 
+students = [
+    {'name': 'Alice', 'age': 40},
+    {'name': 'Bob', 'age': 37},
+    {'name': 'Chris', 'age': 33}
+]
+
+def get_age(dict_item):
+    return dict_item['age']
+
+sorted(students, key=get_age)
++
+# Returns: SEE URL ... it's a screen cap.
++
+Code Reference 2:
+from collections import OrderedDict
+my_ordered_dict = OrderedDict(sorted(my_dict.items()))
++
++
+Code Reference 3:
+dict(sorted(my_dict.items(), key=lambda item: item[1]))
++
++
+URL2 => https://medium.com/@GalarnykMichael/python-basics-10-dictionaries-and-dictionary-methods-4e9efa70f5b9
++
++
+Code Reference:
+for key, value in webstersDict.items():
+    print(key, value)
++
++
+URL3 => https://medium.com/techtofreedom/8-stunning-python-dictionaries-tricks-that-make-your-code-elegant-d8b3cb08bd15
++
++
+Code Reference:
+cities = ['London', 'New York', 'Tokyo', 'Cambridge', 'Oxford']
+countries = ['UK', 'US', 'Japan', 'UK', 'UK']
+uk_cities = {city: country for city, country in zip(cities, countries) if country == 'UK'}
+print(uk_cities)
+# {'London': 'UK', 'Cambridge': 'UK', 'Oxford': 'UK'}
++
++
+KEY ANSWER for Adding the INDEX => https://stackoverflow.com/questions/36395127/how-to-add-index-into-a-dict
++
+via enumerate function ... over a LIST ...
+
+
++

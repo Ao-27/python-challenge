@@ -1,0 +1,88 @@
+https://stackoverflow.com/questions/21572175/convert-csv-file-to-list-of-dictionaries
+https://stackoverflow.com/questions/36395127/how-to-add-index-into-a-dict
+
++++KEY REF BELOW + Sticky Notes from 2023-08-14+++
+https://stackoverflow.com/questions/71641712/how-to-read-csv-file-into-dictionary-without-using-any-advanced-module-instead-o
+
++
+https://www.delftstack.com/howto/python/python-dictionary-find-key-by-value/
+
++
+https://www.delftstack.com/howto/python/python-convert-list-into-dictionary/
+
+NOTE really like this outcome "look + feel" from below:
+
+key_list = ['name', 'age', 'address']
+value_list = ['Johnny', '27', 'New York']
+
+dict_from_list = {}
+for i in range(len(key_list)):
+  dict_from_list[key_list[i]] = value_list[i]
+
+print(dict_from_list)
+
+
++
+https://www.delftstack.com/howto/python/python-sum-dictionary-values/
+
+NOTE ... this is the "goal" ... to make my VARs work "easier" ... I just need this Dict from the CSV to come into Python in a more "workable" format....
+
++
+https://www.delftstack.com/howto/python/nested-dictionary-python/
+
+NOTE ... AGAIN showing what I intend to do for the VARs ... if I were able to "add an index" ... 
+KEY NOTE ... again the "defaultdict" ... function from COLLECTIONs has been mentioned here ... need to actually investigate that piece ... 
+
++
+https://www.delftstack.com/howto/python/enumerate-dictionary-python/
+
+KEY+CRIT code example:
+
+d1 = {'a' : 15,'b' : 18,'c' : 20}
+
+for i, (j,k) in enumerate(d1.items()):
+    print(i,j,k)
+
++
+https://www.delftstack.com/howto/python/plot-dictionary-python/
+
++
+https://www.delftstack.com/howto/python/number-of-keys-in-dictionary-python/
+
++
+https://www.delftstack.com/howto/python/python-dictionary-index/
+
++
+https://www.delftstack.com/howto/python/initialize-a-dictionary-python/
+
+KEY+CRIT Note ... the use "dictionary comprehension" ... area...
+dict1 = {key_expression: value_expression for item in iterable}
+
++
+https://www.delftstack.com/howto/python/python-add-to-dictionary-in-loop/
+
++
+https://www.delftstack.com/howto/python/nested-dictionary-comprehension-in-python/
+
+KEY+CRIT Example+Ref1 STARTER (IE: as TARGET GOAL):
+
+dictionary ={
+    k1: {k2: k1 * k2 for k2 in range(1, 3)} for k1 in range(2, 5)
+}
+print(dictionary)
+
++
+https://www.delftstack.com/howto/python/python-defaultdict-of-defaultdict/
+
++
+https://www.delftstack.com/howto/python/how-to-sort-a-dictionary-by-value/
+
++
+https://www.delftstack.com/howto/python/find-max-value-in-dictionary-python/
+
++
+https://www.delftstack.com/howto/python/compare-two-csv-files-python/
+
+
+
+

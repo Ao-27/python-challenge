@@ -13,7 +13,8 @@ source1_csv_file = "budget_data.csv" #Title of File for Fetch.
 #output1_file = ".txt" #Commented OUT until I actually need it.
 
 #Use OS module to Fetch CSV data and read Source Data into Python for manipulation.
-file_path1 = os.path.join("Resources",source1_csv_file) #NOTE: I'm not in an "Unsolved" folder like in class. So no ".." should be necessary.
+file_path1 = os.path.join("..","Resources",source1_csv_file) 
+     #persNOTE: I'm not in an "Unsolved" folder like in class. So no ".." should be necessary.
 print(file_path1)
 print("-------")
 

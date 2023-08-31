@@ -17,7 +17,7 @@ source1_csv_name = "budget_data.csv" #Title of File for Fetch.
 output1_file_name = "PyBank_Analysis.txt"
 
 #Use OS module to Fetch CSV data and read Source Data into Python for manipulation.
-input_file_path1 = os.path.join("Resources",source1_csv_name) 
+input_file_path1 = os.path.join("..","Resources",source1_csv_name) 
      #persNOTE: I'm not in an "Unsolved" folder like in class. So no ".." should be necessary.
 print(input_file_path1)
 print("-+-+-+-+-+-")
@@ -53,7 +53,8 @@ with open(input_file_path1, 'r',encoding='utf-8-sig',newline='') as csv_file1a:
      csv_reader = csv.reader(csv_file1a,delimiter=",")
      
      #Create Exploratory analysis for the Header Row.
-     header1a = next(csv_file1a).strip().split(",")
+     header1a = next(csv_reader).strip().split(",") #test4 ANSWER => See Error Below ... the file is not a "list" .. but csv_reader converts to list ... HENCE why the "simply use the index[0 or 1]" ... becomes the core functional need for the iterator ... (IE: for Loops).
+
      csv1a_width = len(header1a)
      print("Test - Data Check - CSV reader headers are:")
      print(header1a)
@@ -87,9 +88,9 @@ with open(input_file_path1, 'r',encoding='utf-8-sig',newline='') as csv_file1a:
           total_months_1a +=1
           net_prof_losses_1a += profit_losses_col
           
-     print("-----")
-     print(f"The total_months contained within the CSV are : {total_months_1a}")
-     print(f"The net_profit_loss contained within the CSV are : {net_prof_losses_1a}")
+          print("-----")
+          print(f"The total_months contained within the CSV are : {total_months_1a}")
+          print(f"The net_profit_loss contained within the CSV are : {net_prof_losses_1a}")
 
           #Monthly Changes Data Capture via Iteration:
 #          if total_months_1a >1:

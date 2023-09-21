@@ -1,0 +1,28 @@
+Plan ... for greatest increase + decrease .... 
++
+Calculate the "diff" between each "i" using a For_Loop.
+
+The "i" values ... are actually within our ... Profit + Loss Column ... Which we've already looped as ... a VAR = "profit_loss_col = int(row_1a[1])" ...
++
+
+Current thought .... is for k,v in Loop_PlaceHolder.items(): 
+
+**
+(HOWEVER... remember this is a list of dicts ... not a "dict" ... to use the .items() function ...) ...
+**
+
+Currently thinking to do the following via URL => https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list?rq=1
++
+[i for i, j in enumerate(['foo', 'bar', 'baz']) if j == 'bar']
++
+BASED ON => 
+(1) I have ... the "header1a[1]" ... VAR as the KEY ... which is the "if j == str(header1a[1]) ...
+(2) Also use this URL => https://stackoverflow.com/questions/16819222/how-do-i-return-dictionary-keys-as-a-list-in-python?noredirect=1&lq=1
+	(2a) Goal is to figure out how to "access" the profit_loss ... key to get all of it's value ... 	to then iterate through each "nth" value ... with a list comp ...
++
+URL for List COMP on Accessing List of Dicts => https://stackoverflow.com/questions/22394783/how-to-access-dictionary-elements-in-a-list-in-python
+
++
+How to create search function for List of Dicts => https://stackoverflow.com/questions/8653516/search-a-list-of-dictionaries-in-python
++
+

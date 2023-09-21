@@ -36,6 +36,11 @@ print(input_file_path1)
 #print(file_path2)
 print("-+-+-+-+-+-")
 
+#Use OS module to establish .txt output location for saving.
+output_file_path1 = os.path.join("Analysis",output1_file_name)
+print(output_file_path1)
+print("-+-+-+-+-+-")
+
 #Opening and reading the .csv file.
 with open(input_file_path1, 'r',encoding='utf-8-sig',newline='') as csv_file1:
      csv_reader = csv.reader(csv_file1,delimiter=",")  #persNOTE: ALTERNATIVE path ... for being in "Archived+LessonsLearned"
@@ -163,32 +168,9 @@ print(f"Analysis file has been created as:{output1_file_name}")
 #Move create file to "Analysis" folder directory. via URL => https://datatofish.com/move-file-python/ & https://pynative.com/python-move-files/ & https://www.techbeamers.com/string-concatenation-in-python/
 import shutil
 
-#Use OS module to establish .txt output location for saving.
-output_file_path1 = os.path.join("Analysis")   #,output1_file_name)
-print(output_file_path1)
-print("-+-+-+-+-+-")
+original_location = "r'" + str(validated_current_dir) + str(output1_file_name)
+target_location = "r'" + str(validated_current_dir) + str(output_file_path1) + str(output1_file_name)
 
-#Create VARs to Enable Shutil Module's next steps. #Raw Strings via URL => https://www.codevscolor.com/python-raw-string
-original_location = r'"r'" + str(dir_name) + str('\\') + str(output1_file_name))"
-target_location =   r'"r'" + str(validated_current_dir) + str('\\') + str(output_file_path1) + str('\\') + str(output1_file_name)"  #+ str()
-
-#check if the file already exists in the destination. via URL => https://pynative.com/python-move-files/
-#if os.path.exists(dst_folder + file_name):
-if os.path.exists(target_location + output1_file_name):
-    # Split name and extension
-    data = os.path.splitext(output1_file_name)
-    only_name = data[0]
-    extension = data[1]
-    # Adding the new name
-    new_base = only_name + '_new' + extension
-    # construct full file path
-    new_name = os.path.join(target_location, new_base)
-    # move file
-#    shutil.move(src_folder + file_name, new_name)
-    shutil.move(original_location + output1_file_name, new_name)
-else:
-    shutil.move(original_location + output1_file_name, target_location + output1_file_name)
-#ABOVE = IF EXISTS LOGIC via URL => https://pynative.com/python-move-files/
-#shutil.move(original_location,target_location) 
+shutil.move(original_location,target_location)
 
 print(f"Analysis file has been placed in the path/directory of:\n{target_location}")

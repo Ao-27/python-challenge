@@ -2,19 +2,11 @@
 import os
 import csv
 
-# Change directory to the directory of current python script. via URL => https://stackoverflow.com/questions/1432924/python-change-the-scripts-working-directory-to-the-scripts-own-directory
-abs_path = os.path.abspath(__file__)
-print(abs_path)
-dir_name = os.path.dirname(abs_path)
-print(dir_name)
-print("-----")
-os.chdir(dir_name)
-
 #Confirm actual Current Directory for Building out Path.
-validated_current_dir = os.getcwd()
+current_dir = os.getcwd()
 
 #Validate location of current_dir in relation to Resources "Source Data" files.
-print(f"The .py script's current location is:\n{validated_current_dir}")
+print(f"The .py script's current location is:\n{current_dir}")
 print("-+-+-+-+-+-")
 
 #Create VARs for File Paths for code simplicity.
@@ -34,6 +26,11 @@ input_file_path1 = os.path.join("Resources",source1_csv_name)
 print(input_file_path1)
 #print("-------")
 #print(file_path2)
+print("-+-+-+-+-+-")
+
+#Use OS module to establish .txt output location for saving.
+output_file_path1 = os.path.join("Analysis",output1_file_name)
+print(output_file_path1)
 print("-+-+-+-+-+-")
 
 #Opening and reading the .csv file.
@@ -141,10 +138,10 @@ print("--------")
 print("Financial Analysis")
 print("----------------------------")
 print(f"Total Months: {str(total_row_months)}")
-print(f"Total: ${net_rowsum_prof_loss:.0f}")
+print(f"Total: ${str(net_rowsum_prof_loss)}")
 print(f"Average Change: ${Avg_Mthly_Chg_2ndRowOn:.2f}") #Note Convert to STR not necessary since using fstring syntax. Via URL => https://docs.python.org/3/library/string.html#formatspec
-print(f"Greatest Increase in Profits: {str(Greatest_Increase_Date[0])} (${Greatest_Increase})")
-print(f"Greatest Decrease in Profits: {str(Greatest_Decrease_Date[0])} (${Greatest_Decrease})")
+print(f"Greatest Increase in Profits: {str(Greatest_Increase_Date)} (${Greatest_Increase})")
+print(f"Greatest Decrease in Profits: {str(Greatest_Decrease_Date)} (${Greatest_Decrease})")
 
 # Export the analysis to a text file
 
@@ -152,43 +149,10 @@ with open(output1_file_name, 'w') as file: #Using Output Name assigned above. Ap
     file.write("Financial Analysis\n")
     file.write("----------------------------\n")
     file.write(f"Total Months: {str(total_row_months)}\n")
-    file.write(f"Total: ${net_rowsum_prof_loss:.0f}\n")
+    file.write(f"Total: ${str(net_rowsum_prof_loss)}\n")
     file.write(f"Average Change: ${Avg_Mthly_Chg_2ndRowOn:.2f}\n") #Note Convert to STR not necessary since using fstring syntax. Via URL => https://docs.python.org/3/library/string.html#formatspec
-    file.write(f"Greatest Increase in Profits: {str(Greatest_Increase_Date[0])} (${Greatest_Increase})\n")
-    file.write(f"Greatest Decrease in Profits: {str(Greatest_Decrease_Date[0])} (${Greatest_Decrease})\n")
+    file.write(f"Greatest Increase in Profits: {str(Greatest_Increase_Date)} (${Greatest_Increase})\n")
+    file.write(f"Greatest Decrease in Profits: {str(Greatest_Decrease_Date)} (${Greatest_Decrease})\n")
     file.close()
 
-print(f"Analysis file has been created as:{output1_file_name}")
-
-#Move create file to "Analysis" folder directory. via URL => https://datatofish.com/move-file-python/ & https://pynative.com/python-move-files/ & https://www.techbeamers.com/string-concatenation-in-python/
-import shutil
-
-#Use OS module to establish .txt output location for saving.
-output_file_path1 = os.path.join("Analysis")   #,output1_file_name)
-print(output_file_path1)
-print("-+-+-+-+-+-")
-
-#Create VARs to Enable Shutil Module's next steps. #Raw Strings via URL => https://www.codevscolor.com/python-raw-string
-original_location = r'"r'" + str(dir_name) + str('\\') + str(output1_file_name))"
-target_location =   r'"r'" + str(validated_current_dir) + str('\\') + str(output_file_path1) + str('\\') + str(output1_file_name)"  #+ str()
-
-#check if the file already exists in the destination. via URL => https://pynative.com/python-move-files/
-#if os.path.exists(dst_folder + file_name):
-if os.path.exists(target_location + output1_file_name):
-    # Split name and extension
-    data = os.path.splitext(output1_file_name)
-    only_name = data[0]
-    extension = data[1]
-    # Adding the new name
-    new_base = only_name + '_new' + extension
-    # construct full file path
-    new_name = os.path.join(target_location, new_base)
-    # move file
-#    shutil.move(src_folder + file_name, new_name)
-    shutil.move(original_location + output1_file_name, new_name)
-else:
-    shutil.move(original_location + output1_file_name, target_location + output1_file_name)
-#ABOVE = IF EXISTS LOGIC via URL => https://pynative.com/python-move-files/
-#shutil.move(original_location,target_location) 
-
-print(f"Analysis file has been placed in the path/directory of:\n{target_location}")
+print(f"Analysis has been exported to:{output1_file_name}")

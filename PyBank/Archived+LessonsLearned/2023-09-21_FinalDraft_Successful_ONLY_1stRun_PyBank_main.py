@@ -181,25 +181,14 @@ original_location =   dir_name+'/'+output1_file_name
 target_location =   dir_name+'/'+output_file_path1
 #NOTE this is the "destinationPath" for G for Geeks. Where "source" AND "path" (dir_name) are "one in the same" (IE: we're not "targeting the file") ... and "destination"... is the NEW FOLDER ... That the file will be moved INTO ...
 
-if os.path.exists(target_location + output1_file_name):
-     try:
-          os.remove(target_location+output1_file_name)     #"/"+output1_file_name)
-          print(f"Existing {output1_file_name} file removed within:\n{target_location}")
-          movedToDestination = shutil.move(original_location,target_location)
-     except: 
-          print("error + failed")
-     else:
-          movedToDestination = shutil.move(original_location,target_location)
-          print(f"if not first run ... second copy created somehow ... ")
-
 #check if the file already exists in the destination. via URL => https://pynative.com/python-move-files/
 #if os.path.exists(dst_folder + file_name):
-#if os.path.exists(target_location + output1_file_name):
-#    print(output1_file_name, "already exists in the destination path! Deleting so that most recent copy is in destination path.")
-#    #removing existing file to enable "_new" creation.
-#    os.remove(target_location+"/"+output1_file_name)
-#    print("-----")
-#    print("Analysis output file created with '_new' tag to confirm it was removed and replaced.")
+if os.path.exists(target_location + output1_file_name):
+    print(output1_file_name, "already exists in the destination path! Deleting so that most recent copy is in destination path.")
+    #removing existing file to enable "_new" creation.
+    os.remove(target_location+"/"+output1_file_name)
+    print("-----")
+    print("Analysis output file created with '_new' tag to confirm it was removed and replaced.")
 
     #KEY NOTE below is tied to "isdir" ... on the G for Geeks example ... I am working on a file ... so I just need the "elif" branch to remove existing in my coding approach.
 
@@ -208,23 +197,20 @@ if os.path.exists(target_location + output1_file_name):
     #shutil.rmtree(target_location)
     
     # Split name and extension of new file replacing the existing file (likely want to remove the "_new" below for my submission)
-#    data = os.path.splitext(output1_file_name)
-#    only_name = data[0]
-#    extension = data[1]
+    data = os.path.splitext(output1_file_name)
+    only_name = data[0]
+    extension = data[1]
     # Adding the new name
-#    new_base = only_name + '_new' + extension
+    new_base = only_name + '_new' + extension
     # construct full file path
-#    new_name = os.path.join(target_location, new_base)
+    new_name = os.path.join(target_location, new_base)
     # move file
 #    shutil.move(src_folder + file_name, new_name)
-#    destination1 = shutil.move(original_location + output1_file_name, new_name)
-#else:
-#    destination2 = shutil.move(original_location , target_location)        #shutil.move(original_location + output1_file_name, target_location) # + output1_file_name)
+    destination1 = shutil.move(original_location + output1_file_name, new_name)
+else:
+    destination2 = shutil.move(original_location , target_location)        #shutil.move(original_location + output1_file_name, target_location) # + output1_file_name)
 #ABOVE = IF EXISTS LOGIC via URL => https://pynative.com/python-move-files/
 #shutil.move(original_location,target_location) 
 
-print(output1_file_name, "has been relocated!")
-print("-----")
-print(f"The following list is the content of the original path/directory:\n {os.listdir(validated_current_dir)}")
-print(f"Analysis file name: {output1_file_name} \n Has now been placed in the path/directory of:\n{target_location}")
-#print("Destination Path:\n", destination1, destination2)
+print(f"Analysis file has been placed in the path/directory of:\n{target_location}")
+print("Destination Path:\n", destination1, destination2)
